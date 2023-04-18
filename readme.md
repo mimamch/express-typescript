@@ -9,8 +9,8 @@ Best Practice Code Writing.
 Clone project from github
 
 ```
-  git clone
-  cd
+  git clone https://github.com/mimamch/express-typescript.git
+  cd express-typescript
 ```
 
 Installing depedencies
@@ -35,13 +35,13 @@ npm run build && npm start
 
 #### Get all product
 
-```http
+```
   GET /product
 ```
 
 #### Get item
 
-```http
+```
   GET /user
 ```
 
