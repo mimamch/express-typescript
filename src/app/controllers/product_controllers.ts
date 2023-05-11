@@ -4,10 +4,14 @@ import {
   responseErrorWithMessage,
   responseSuccessWithData,
 } from "@/utils/response";
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 
 // function based controller
-export const getProducts = async (req: Request, res: Response) => {
+export const getProducts = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const data: ProductTypes[] = [
       {
@@ -23,11 +27,7 @@ export const getProducts = async (req: Request, res: Response) => {
     // response success with a data
     res.status(200).json(responseSuccessWithData(data));
   } catch (error) {
-    if (error instanceof ValidationError) {
-      // response on custom error
-      return res.status(400).json(responseErrorWithMessage(error.message));
-    }
-    // response on default error
-    res.status(500).json(responseErrorWithMessage());
+    // send to error handler
+    next(error);
   }
 };

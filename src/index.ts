@@ -1,4 +1,4 @@
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import http from "http";
@@ -7,6 +7,9 @@ import MainRouter from "@routes/index";
 import cors from "cors";
 import morgan from "morgan";
 import { config } from "dotenv";
+import ValidationError from "./utils/error/validation_error";
+import errorHandlerMiddleware from "./app/middleware/error_handler_middleware";
+import notFoundHandlerMiddleware from "./app/middleware/not_found_handler_middleware";
 config();
 var app = express();
 app.use(morgan("dev"));
@@ -21,9 +24,8 @@ app.use("/p/*", (req, res) => res.status(404).send("Media Not Found"));
 
 app.use(MainRouter);
 
-app.use((req, res) => {
-  res.status(404).json(responseErrorWithMessage("Page Not Found"));
-});
+app.use(notFoundHandlerMiddleware);
+app.use(errorHandlerMiddleware);
 
 const PORT = process.env.PORT || "5000";
 app.set("port", PORT);

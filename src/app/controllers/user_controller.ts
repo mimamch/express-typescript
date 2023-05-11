@@ -4,12 +4,12 @@ import {
   responseErrorWithMessage,
   responseSuccessWithData,
 } from "@/utils/response";
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 
 // class based controller
 export default abstract class UserControllers {
   // new controller instance
-  static getUsers = async (req: Request, res: Response) => {
+  static getUsers = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data: UserTypes[] = [
         {
@@ -25,12 +25,8 @@ export default abstract class UserControllers {
       // response success with a data
       res.status(200).json(responseSuccessWithData(data));
     } catch (error) {
-      if (error instanceof ValidationError) {
-        // response on custom error
-        return res.status(400).json(responseErrorWithMessage(error.message));
-      }
-      // response on default error
-      res.status(500).json(responseErrorWithMessage());
+      // send to error handler
+      next(error);
     }
   };
 }
