@@ -27,22 +27,6 @@ const main = () => {
       }
     })
     .version("1.0.0", "-v, --version", "display the version number");
-
-  // program
-  //   .command("init")
-  //   .description("create express template")
-  //   .argument("<target>", "target directory")
-  //   .action(async (target) => {
-  //     try {
-  //       copyDir("template/main-template", target);
-  //       logger.success(`Success, next step: "cd ${target} && npm install"`);
-  //       process.exit(0);
-  //     } catch (error) {
-  //       logger.error(error);
-  //       process.exit(1);
-  //     }
-  //   });
-
   program.parse();
 };
 main();

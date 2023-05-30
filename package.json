@@ -1,11 +1,17 @@
 {
-  "name": "express-typescript",
+  "name": "express-generator-template",
   "description": "Express with Typescript Template",
   "version": "1.0.0",
-  "private": true,
-  "scripts": {},
   "bin": "./bin.js",
   "author": "mimamch",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mimamch/express-typescript.git"
+  },
+  "keywords": [
+    "express",
+    "express-typescript"
+  ],
   "dependencies": {
     "chalk": "^4.1.2",
     "commander": "^10.0.1"

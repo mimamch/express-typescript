@@ -9,7 +9,7 @@ Best Practice Code Writing.
 Clone project from github
 
 ```
-  npx express-typescript my-express-app
+  npx express-generator-template my-express-app
   cd my-express-app
   npm install
   npm run dev
