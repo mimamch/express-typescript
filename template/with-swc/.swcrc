@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json.schemastore.org/swcrc",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "decorators": true,
+      "dynamicImport": true
+    },
+    "target": "es2021",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@customtypes/*": ["./src/types/*"],
+      "@controllers/*": ["./src/app/controllers/*"],
+      "@routes/*": ["./src/app/routes/*"]
+    }
+  },
+
+  "module": {
+    "type": "commonjs"
+  },
+  "minify": false,
+  "sourceMaps": true
+}

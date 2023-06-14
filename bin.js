@@ -10,14 +10,21 @@ const copyRecursive = (source, target) => {
   fs.copyFileSync(source, target);
 };
 
+const template = {
+  main: "main-template",
+  swc: "with-swc",
+};
+
 const main = () => {
   const program = new Command()
     .name("express-typescript")
     .description("Create express typescript template")
     .argument("<target>", "Target Directory")
-    .action(async (target) => {
+    .option("--swc", "use swc compiler")
+    .action(async (target, options) => {
       try {
-        copyDir(path.join(__dirname, "template", "main-template"), target);
+        const t = template[(options.swc && "swc") || "main"];
+        copyDir(path.join(__dirname, "template", t), target);
         logger.success(`\nSuccess, next step:\n`);
         logger.info(`cd ${target} && npm install`);
         process.exit(0);

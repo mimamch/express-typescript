@@ -6,7 +6,14 @@ Best Practice Code Writing.
 
 ## Installation & Setup
 
-Clone project from github
+With SWC Compiler
+
+```
+  npx express-generator-template my-app --swc
+  cd my-app
+```
+
+Without SWC Compiler
 
 ```
   npx express-generator-template my-app
