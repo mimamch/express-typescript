@@ -9,14 +9,14 @@ Best Practice Code Writing.
 With SWC Compiler
 
 ```
-  npx express-generator-template my-app --swc
+  npx express-generator-template@latest my-app --swc
   cd my-app
 ```
 
 Without SWC Compiler
 
 ```
-  npx express-generator-template my-app
+  npx express-generator-template@latest my-app
   cd my-app
 ```
 
