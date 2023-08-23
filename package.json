@@ -1,7 +1,7 @@
 {
   "name": "express-generator-template",
   "description": "Express with Typescript Template",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "bin": "./bin.js",
   "author": "mimamch",
   "repository": {

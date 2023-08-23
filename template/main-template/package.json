@@ -1,23 +1,22 @@
 {
   "name": "main-express-typescript",
-  "description": "Express with Typescript Template",
+  "description": "Express Rest API",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
-    "start": "node ./dist/",
-    "dev": "nodemon ./src/index.ts",
-    "build": "tsc && tsc-alias",
-    "build:start": "tsc && tsc-alias && npm run start"
+    "start": "NODE_ENV=production node dist/index.js",
+    "dev": "tsup src/index.ts --watch --sourcemap inline --onSuccess \"node dist/index.js\"",
+    "build": "npm run clean && tsc && tsc-alias",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@prisma/client": "^4.12.0",
-    "cookie-parser": "~1.4.4",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "debug": "~2.6.9",
-    "dotenv": "^16.0.3",
-    "express": "~4.16.1",
-    "morgan": "~1.9.1",
-    "prisma": "^4.12.0"
+    "debug": "^4.3.4",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "source-map-support": "^0.5.21",
+    "tsup": "^7.2.0"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.3",
